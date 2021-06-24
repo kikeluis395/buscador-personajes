@@ -1,0 +1,43 @@
+.character-container {
+  display: flex;
+  margin-block: 20px;
+  padding-left: 20px;
+  justify-content: space-between;
+}
+.character-container .character-details {
+  margin: 0 20px;
+}
+
+.character-container img {
+  justify-self: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid #9b9b9b;
+  object-fit: cover;
+}
+
+.character-container .character-details h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.character-container .character-details p {
+  color: #9b9b9b;
+  padding-left: 20px;
+}
+
+.character-container .character-details .grades-container {
+  padding-left: 20px;
+}
+
+.character-container .character-details .grades-container p{
+  margin: 0;
+}
+
+.character-container .grades-show {
+  margin-right: 30px;
+  font-size: 3rem;
+  float: right;
+  cursor: pointer;
+}

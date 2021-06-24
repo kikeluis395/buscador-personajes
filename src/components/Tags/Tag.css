@@ -1,0 +1,28 @@
+.tag-container {
+  padding: 10px;
+  border-bottom: 2px solid #ebebeb;
+  margin:20px;
+  width: max-content;
+}
+
+.tag {
+  width: 100%;
+  outline: none;
+  border: 0;
+  font-size: 1rem;
+}
+.tag-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.tag-cards-container .tag-card {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #efefef;
+  border-radius: 10px;
+}
+

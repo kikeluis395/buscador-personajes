@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Characters from "./components/Characters/Characters";
+import Search from "./components/Search/Search";
 
-function App() {
+const App = () => {
+  const [characters, setCharacters] = useState([]);
+  const [filter, setFilter] = useState([]);
+
+  const fetchCharacters = async () => {
+    const { students } = await fetch(
+      "https://api.hatchways.io/assessment/students"
+    )
+      .then((data) => data.json())
+      .catch((error) => console.log(error));
+    setCharacters(students);
+    setFilter(students);
+    console.log(students);
+  };
+
+  const charactersFilter = (search) => {
+    let filtrados = characters.filter((e) => {
+      if (
+        e.firstName.toLowerCase().includes(search.toLowerCase()) ||
+        e.lastName.toLowerCase().includes(search.toLowerCase())
+      ) {
+        return e;
+      }
+    });
+    setFilter(filtrados);
+  };
+
+  useEffect(() => {
+    fetchCharacters();
+  }, []);
+
+  const Average = ({ grades }) => {
+    let total = grades.reduce(
+      (total, value) => parseInt(total) + parseInt(value)
+    );
+    let result = total / grades.length;
+    return result;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <div className="container">
+        <div className="characters-container">
+          <Search placeholder="Search by name" charactersFilter={charactersFilter} />
+          <Search placeholder="Search by tag" charactersFilter={charactersFilter} />
+          <Characters characters={filter} Average={Average} />
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Character.css";
 import Tag from "../../Tags/Tag";
 
-const Character = ({ singleCharacter, Average }) => {
-  singleCharacter = {...singleCharacter, tag: []};
+const Character = ({ singleCharacter, Average, handleList }) => {
   const [open, setOpen] = useState(false);
   const [signo, setSigno] = useState("+");
   const show = () => {
@@ -17,7 +16,7 @@ const Character = ({ singleCharacter, Average }) => {
 
   return (
     <div className="character-container">
-      <div style={{display: "flex"}}>
+      <div className="character-div">
         <img
           src={singleCharacter.pic}
           alt={singleCharacter.firstName}
@@ -39,7 +38,7 @@ const Character = ({ singleCharacter, Average }) => {
               ))}
             </div>
           ) : null}
-          <Tag singleCharacter={singleCharacter}/>
+          <Tag singleCharacter={singleCharacter} handleList={handleList}/>
         </div>
       </div>
 

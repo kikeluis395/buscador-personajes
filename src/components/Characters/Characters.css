@@ -54,3 +54,10 @@
 .characters-main-container .characters-empty p {
   color: #797979;
 }
+
+@media screen and (max-width: 940px) {
+  .characters-container {
+    width: 90vw;
+    height: 80vh;
+  }
+}

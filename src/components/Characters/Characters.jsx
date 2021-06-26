@@ -2,7 +2,7 @@ import React from "react";
 import Character from "./Character/Character";
 import "./Characters.css";
 
-const Characters = ({ characters, Average }) => {
+const Characters = ({ characters, Average, handleList }) => {
   return (
     <div className="characters-main-container">
       {characters.length>0 ? (
@@ -11,6 +11,7 @@ const Characters = ({ characters, Average }) => {
             key={singleCharacter.id}
             singleCharacter={singleCharacter}
             Average={Average}
+            handleList={handleList}
           />
         ))
       ) : (
